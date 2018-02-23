@@ -1,0 +1,35 @@
+{
+	"name": "core.vue",
+	"private": true,
+	"version": "0.0.0",
+	"devDependencies": {
+		"@types/jquery": "^3.3.0",
+		"@types/toastr": "^2.1.35",
+		"@types/webpack-env": "^1.13.5",
+		"aspnet-webpack": "^2.0.3",
+		"awesome-typescript-loader": "^3.4.1",
+		"css-loader": "^0.28.9",
+		"event-source-polyfill": "^0.0.12",
+		"extract-text-webpack-plugin": "^3.0.2",
+		"file-loader": "^1.1.8",
+		"isomorphic-fetch": "^2.2.1",
+		"style-loader": "^0.20.2",
+		"typescript": "^2.7.2",
+		"url-loader": "^0.6.2",
+		"vue": "^2.5.13",
+		"vue-loader": "^14.1.1",
+		"vue-property-decorator": "^6.0.0",
+		"vue-router": "^3.0.1",
+		"vue-template-compiler": "^2.5.13",
+		"webpack": "^3.11.0",
+		"webpack-hot-middleware": "^2.21.0"
+	},
+	"dependencies": {
+		"bootstrap": "^4.0.0",
+		"font-awesome": "^4.7.0",
+		"jquery": "^3.3.1",
+		"popper.js": "^1.13.0",
+		"toastr": "^2.1.4",
+		"vue-toastr": "^2.0.12"
+	}
+}
