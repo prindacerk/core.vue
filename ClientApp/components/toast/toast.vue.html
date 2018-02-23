@@ -167,9 +167,9 @@
 
 					<div class="row m-5">
 						<div class="col-12 text-right">
-							<button type="button" class="btn btn-primary" id="showtoast">Show Toast</button>
-							<button type="button" class="btn btn-secondary" id="cleartoasts">Clear Toasts</button>
-							<button type="button" class="btn btn-danger" id="clearlasttoast">Clear Last Toast</button>
+							<button type="button" class="btn btn-primary" id="showtoast" @click="showToast">Show Toast</button>
+							<button type="button" class="btn btn-secondary" id="cleartoasts" @click="clearToasts">Clear Toasts</button>
+							<button type="button" class="btn btn-danger" id="clearlasttoast" @click="clearLastToast">Clear Last Toast</button>
 						</div>
 					</div>
 				</form>
