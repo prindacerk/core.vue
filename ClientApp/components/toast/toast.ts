@@ -1,6 +1,6 @@
 ﻿import Vue from "vue";
 import $ from "jquery";
-import { Component } from "vue-property-decorator";
+import { Component, Prop } from "vue-property-decorator";
 
 var toastr = require("toastr/toastr");
 
@@ -32,8 +32,15 @@ interface IToastrSettings {
 export default class ToastComponent extends Vue {
 	options: IToastrSettings;
 	messages: string[];
+	test: string;
 
 	components: {
+	}
+
+	data() {
+		return {
+			options: {}
+		};
 	}
 
 	created() {
@@ -115,7 +122,7 @@ export default class ToastComponent extends Vue {
 			hideDuration: this.options.hideDuration,
 			extendedTimeOut: this.options.extendedTimeOut,
 		};
-		console.log(toastr.options);
+		//console.log(toastr.options);
 
 		if (this.options.message === "") {
 			this.options.message = this.getMessage();
