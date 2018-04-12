@@ -1,13 +1,16 @@
 const path = require("path");
 const webpack = require("webpack");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const CheckerPlugin = require("awesome-typescript-loader").CheckerPlugin;
 const bundleOutputDir = "./wwwroot";
 
 module.exports = (env) => {
-    const isDevBuild = !(env && env.prod);
+	const isDevBuild = !(env && env.prod);
+	console.log(`Dev Environment:${isDevBuild}`);
 
-    return [{
+	return [{
+		mode: isDevBuild ? "development" : "production",
         stats: { modules: false },
         context: __dirname,
         resolve: { extensions: [ ".js", ".ts" ] },
@@ -27,11 +30,6 @@ module.exports = (env) => {
         },
         plugins: [
             new CheckerPlugin(),
-            new webpack.DefinePlugin({
-                'process.env': {
-                    NODE_ENV: JSON.stringify(isDevBuild ? "development" : "production")
-                }
-            }),
             new webpack.DllReferencePlugin({
                 context: __dirname,
                 manifest: require("./wwwroot/vendor/vendor-manifest.json")
@@ -44,8 +42,9 @@ module.exports = (env) => {
             }),
         ] : [
             // Plugins that apply in production builds only
-            new webpack.optimize.UglifyJsPlugin(),
-            new ExtractTextPlugin("css/site.css")
-        ])
+				new UglifyJsPlugin(),
+		        new ExtractTextPlugin("css/site.css")
+			]
+		)
     }];
 };
