@@ -3,6 +3,7 @@ const webpack = require("webpack");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const CheckerPlugin = require("awesome-typescript-loader").CheckerPlugin;
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const bundleOutputDir = "./wwwroot";
 
 module.exports = (env) => {
@@ -33,7 +34,8 @@ module.exports = (env) => {
             new webpack.DllReferencePlugin({
                 context: __dirname,
                 manifest: require("./wwwroot/vendor/vendor-manifest.json")
-            })
+			}),
+	        new VueLoaderPlugin(),
         ].concat(isDevBuild ? [
             // Plugins that apply in development builds only
             new webpack.SourceMapDevToolPlugin({
